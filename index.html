@@ -25,6 +25,50 @@
     <section class="conteudo">
         <h1>Bem-vinda à Seduza Cosméticos</h1>
         <p>Descubra produtos que realçam sua beleza natural.</p>
+    
+    <div class="cards-info">
+        <div class="card">
+            <h3>🌿 Ingredientes Naturais</h3>
+            <p>Utilizamos ativos da natureza cuidadosamente selecionados, respeitando o meio ambiente.</p>
+        </div>
+        <div class="card">
+            <h3>🧪 Fórmulas Seguras</h3>
+            <p>Produtos dermatologicamente testados, livres de parabenos e cruelty free.</p>
+        </div>
+        <div class="card">
+            <h3>💄 Beleza com Propósito</h3>
+            <p>Valorizamos a autoestima e autenticidade de cada mulher brasileira.</p>
+        </div>
+    </div>
     </section>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-info">
+            <h3>Contato</h3>
+            <p>📞 (11) 99999-9999</p>
+            <p>✉️ contato@seduza.com.br</p>
+            <p>📍 Rua da Beleza, 123 - São Paulo, SP</p>
+            </div>
+            <div class="footer-info">
+            <h3>Horário de Funcionamento</h3>
+                <p>Somente às segundas<br>08:00 às 14:00</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Seduza Cosméticos. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+
+    <script>
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 10) {
+            navbar.classList.add('scrolled');
+            } else {
+            navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
 </body>
 </html>
