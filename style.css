@@ -1,6 +1,6 @@
 /* Base Font Size for REM units */
 html {
-    font-size: 62.5%; /* This makes 1rem = 10px, for easier calculations */
+    font-size: 62.5%; /* Isso faz com que 1rem = 10px, para cálculos mais fáceis */
 }
 
 /* Fontes base */
@@ -9,7 +9,7 @@ body {
     font-family: 'Roboto', sans-serif;
     background-color: #fff8f0;
     color: #8e0d13;
-    font-size: 1.6rem; /* Base font size for body, equivalent to 16px */
+    font-size: 1.6rem; /* Tamanho de fonte base para o corpo, equivalente a 16px */
 }
 
 /* Navbar */
@@ -131,14 +131,13 @@ body {
 }
 
 
+/* Footer */
 .footer {
   background-color: #8e0d13;
   color: #fff8f0;
   padding: 4rem 2rem 2rem; /* 40px 20px 20px */
   font-size: 1.4rem; /* 14px */
 }
-
-/* Footer */
 
 .footer-content {
   display: flex;
@@ -168,17 +167,18 @@ body {
   color: #fff0e0;
 }
 
+
 /* Media Queries for Responsiveness - REM units */
 
 /* Small devices (e.g., mobile phones) */
 @media (max-width: 76.8rem) { /* 768px */
     .navbar {
-        flex-direction: row;
+        flex-direction: column;
         padding: 1rem 2rem; /* 10px 20px */
     }
 
     .navbar ul {
-        flex-direction: row;
+        flex-direction: column;
         gap: 1rem; /* 10px */
         margin-top: 1rem; /* 10px */
     }
