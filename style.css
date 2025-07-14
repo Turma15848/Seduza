@@ -173,12 +173,12 @@ body {
 /* Small devices (e.g., mobile phones) */
 @media (max-width: 76.8rem) { /* 768px */
     .navbar {
-        flex-direction: column;
+        flex-direction: row;
         padding: 1rem 2rem; /* 10px 20px */
     }
 
     .navbar ul {
-        flex-direction: column;
+        flex-direction: row;
         gap: 1rem; /* 10px */
         margin-top: 1rem; /* 10px */
     }
