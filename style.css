@@ -1,9 +1,15 @@
+/* Base Font Size for REM units */
+html {
+    font-size: 62.5%; /* This makes 1rem = 10px, for easier calculations */
+}
+
 /* Fontes base */
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
     background-color: #fff8f0;
     color: #8e0d13;
+    font-size: 1.6rem; /* Base font size for body, equivalent to 16px */
 }
 
 /* Navbar */
@@ -12,7 +18,7 @@ body {
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     color: white;
-    padding: 15px 30px;
+    padding: 1.5rem 3rem; /* 15px 30px */
     position: sticky;
     top: 0;
     display: flex;
@@ -20,19 +26,12 @@ body {
     align-items: center;
     z-index: 1000;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    padding: 15px 30px;
-    position: sticky;
-    top: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1000;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.4rem 0.6rem rgba(0, 0, 0, 0.1); /* 0 4px 6px */
 }
 
 .navbar.scrolled {
     background-color: #ffffff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.4rem 0.6rem rgba(0, 0, 0, 0.1); /* 0 4px 6px */
 }
 
 .navbar.scrolled .logo {
@@ -46,14 +45,14 @@ body {
 
 .navbar .logo {
     font-family: 'Cinzel', serif;
-    font-size: 24px;
+    font-size: 2.4rem; /* 24px */
     color: #e5c18b;
 }
 
 .navbar ul {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 2rem; /* 20px */
     margin: 0;
     padding: 0;
 }
@@ -79,18 +78,18 @@ body {
 /* Conteúdo */
 .conteudo {
     text-align: center;
-    padding: 50px 20px;
-    margin-bottom: 60px; /* espaçamento pro footer */
+    padding: 5rem 2rem; /* 50px 20px */
+    margin-bottom: 6rem; /* 60px */
 }
 
 .conteudo h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 36px;
+    font-size: 3.6rem; /* 36px */
     color: #8e0d13;
 }
 
 .conteudo p {
-    font-size: 18px;
+    font-size: 1.8rem; /* 18px */
     color: #5a0a0e;
 }
 
@@ -99,35 +98,35 @@ body {
 .cards-info {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 2rem; /* 20px */
   justify-content: center;
-  margin-top: 40px;
+  margin-top: 4rem; /* 40px */
 }
 
 .card {
   background-color: #ffffff;
-  border: 1px solid #e5e5e5;
-  border-radius: 10px;
-  padding: 25px;
-  max-width: 300px;
-  flex: 1 1 250px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  border: 0.1rem solid #e5e5e5; /* 1px */
+  border-radius: 1rem; /* 10px */
+  padding: 2.5rem; /* 25px */
+  max-width: 30rem; /* 300px */
+  flex: 1 1 25rem; /* 250px */
+  box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.05); /* 0 2px 10px */
   transition: transform 0.2s ease;
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-0.5rem); /* -5px */
 }
 
 .card h3 {
   color: #8e0d13;
-  font-size: 20px;
-  margin-bottom: 10px;
+  font-size: 2rem; /* 20px */
+  margin-bottom: 1rem; /* 10px */
 }
 
 .card p {
   color: #444;
-  font-size: 16px;
+  font-size: 1.6rem; /* 16px */
   line-height: 1.5;
 }
 
@@ -135,8 +134,8 @@ body {
 .footer {
   background-color: #8e0d13;
   color: #fff8f0;
-  padding: 40px 20px 20px;
-  font-size: 14px;
+  padding: 4rem 2rem 2rem; /* 40px 20px 20px */
+  font-size: 1.4rem; /* 14px */
 }
 
 /* Footer */
@@ -145,107 +144,89 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  max-width: 1000px;
+  max-width: 100rem; /* 1000px */
   margin: 0 auto;
-  gap: 40px;
+  gap: 4rem; /* 40px */
 }
 
 .footer-info {
-  flex: 1 1 300px;
+  flex: 1 1 30rem; /* 300px */
 }
 
 .footer-info h3 {
-  font-size: 18px;
-  margin-bottom: 10px;
+  font-size: 1.8rem; /* 18px */
+  margin-bottom: 1rem; /* 10px */
   color: #e5c18b;
 }
 
 .footer-bottom {
   text-align: center;
-  margin-top: 30px;
-  border-top: 1px solid #ffffff33;
-  padding-top: 15px;
-  font-size: 13px;
+  margin-top: 3rem; /* 30px */
+  border-top: 0.1rem solid #ffffff33; /* 1px */
+  padding-top: 1.5rem; /* 15px */
+  font-size: 1.3rem; /* 13px */
   color: #fff0e0;
 }
 
-/* Responsividade para mobile */
+/* Media Queries for Responsiveness - REM units */
 
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px 20px;
-  }
+/* Small devices (e.g., mobile phones) */
+@media (max-width: 76.8rem) { /* 768px */
+    .navbar {
+        flex-direction: row;
+        padding: 1rem 2rem; /* 10px 20px */
+    }
 
-  .navbar nav ul {
-    flex-direction: column;
-    width: 100%;
-    gap: 10px;
-    margin-top: 10px;
-  }
+    .navbar ul {
+        flex-direction: row;
+        gap: 1rem; /* 10px */
+        margin-top: 1rem; /* 10px */
+    }
 
-  .navbar .logo {
-    font-size: 22px;
-  }
+    .navbar .logo {
+        margin-bottom: 1rem; /* 10px */
+    }
 
-  .conteudo h1 {
-    font-size: 28px;
-  }
+    .conteudo h1 {
+        font-size: 2.8rem; /* 28px */
+    }
 
-  .conteudo p {
-    font-size: 16px;
-  }
+    .conteudo p {
+        font-size: 1.6rem; /* 16px */
+    }
 
-  .cards-info {
-    flex-direction: column;
-    gap: 20px;
-  }
+    .cards-info {
+        flex-direction: column;
+        align-items: center;
+    }
 
-  .card {
-    max-width: 100%;
-  }
+    .card {
+        max-width: 90%;
+        margin-bottom: 2rem; /* 20px */
+    }
 
-  .footer-content {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    text-align: center;
-  }
-
-  .footer-info {
-    flex: 1 1 100%;
-  }
+    .footer-content {
+        flex-direction: column;
+        gap: 2rem; /* 20px */
+        text-align: center;
+    }
 }
 
-@media (max-width: 480px) {
-  .navbar {
-    padding: 10px 15px;
-  }
+/* Medium devices (e.g., tablets) */
+@media (min-width: 76.9rem) and (max-width: 102.4rem) { /* 769px and 1024px */
+    .navbar {
+        padding: 1.5rem 3rem; /* 15px 30px */
+    }
 
-  .navbar nav ul {
-    gap: 8px;
-  }
+    .conteudo h1 {
+        font-size: 3.2rem; /* 32px */
+    }
 
-  .conteudo h1 {
-    font-size: 24px;
-  }
+    .cards-info {
+        gap: 1.5rem; /* 15px */
+    }
 
-  .conteudo p {
-    font-size: 15px;
-  }
-
-  .card h3 {
-    font-size: 18px;
-  }
-
-  .card p {
-    font-size: 15px;
-  }
-
-  .footer {
-    font-size: 13px;
-    padding: 30px 15px 15px;
-  }
+    .card {
+        max-width: 45%;
+    }
 }
-

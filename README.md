@@ -1,5 +1,7 @@
 # 🌐 Site Institucional - Seduza
 
+[Acesse o site aqui](https://turma15848.github.io/Seduza/)
+
 <!-- Comentário: Breve descrição do projeto e sua finalidade -->
 Este repositório contém o código-fonte do site institucional da empresa **Seduza**, desenvolvido com HTML, CSS e JavaScript puro.  
 O objetivo é apresentar os serviços, identidade e informações de contato da empresa de forma clara, responsiva e profissional.
