@@ -145,11 +145,15 @@ body {
 
 .produto-img {
   width: 100%;
-  border-radius: 0.5rem; /* 5px */
-  margin-bottom: 1.5rem; /* espaço entre imagem e título */
+  height: 20rem; /* Define altura fixa — ajuste conforme necessário */
+  object-fit: cover; /* Corta o excesso sem distorcer */
+  object-position: center; /* Centraliza a imagem dentro do espaço */
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
   box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
 }
+
 
 .produto-img:hover {
   transform: scale(1.05);
