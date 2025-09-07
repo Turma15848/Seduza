@@ -96,11 +96,11 @@ body {
 /* Cards */
 
 .cards-info {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem; /* 20px */
-  justify-content: center;
-  margin-top: 4rem; /* 40px */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  gap: 2rem;
+  margin-top: 4rem;
+  justify-items: center;
 }
 
 .card {
@@ -284,3 +284,4 @@ body {
         max-width: 45%;
     }
 }
+
