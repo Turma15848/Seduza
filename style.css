@@ -144,42 +144,6 @@ body {
   max-width: 25rem; /* 250px */
 }
 
-/* NOVO: Container de Scroll Horizontal */
-.produtos-scroll {
-    overflow-x: auto; /* Garante scroll HORIZONTAL (esquerda para direita)
-    /* Habilita o Flexbox para alinhar os cards lado a lado */
-    display: flex;
-    /* Impede que os cards quebrem para a linha de baixo */
-    flex-wrap: nowrap; 
-    /* Ativa a barra de rolagem horizontal quando o conteúdo exceder */
-    overflow-x: auto; 
-    /* Espaçamento entre os cartões */
-    gap: 2rem; 
-    /* Padding para afastar do canto da tela, facilitando a visualização */
-    padding: 1rem 0; 
-    width: 100%;
-    /* Opcional: Centraliza o container de scroll na tela, se houver espaço sobrando */
-    justify-content: flex-start; 
-}
-
-/* NOVO: Ajuste nos cards dentro do container de scroll */
-.produtos-scroll .card {
-    /* Impede que o card encolha ou cresça, mantendo a largura fixa */
-    flex: 0 0 25rem; 
-    max-width: 25rem;
-    /* Garante que o efeito de translação funcione corretamente no scroll */
-    transition: transform 0.2s ease;
-}
-
-/* NOVO: Ocultar a barra de rolagem nativa para um visual mais limpo */
-.produtos-scroll::-webkit-scrollbar {
-    display: none; /* Chrome, Safari e Opera */
-}
-.produtos-scroll {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
-}
-
 .produto-img {
   width: 100%;
   height: 20rem; /* Define altura fixa — ajuste conforme necessário */
@@ -321,5 +285,6 @@ body {
         max-width: 45%;
     }
 }
+
 
 
