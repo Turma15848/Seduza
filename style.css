@@ -146,6 +146,7 @@ body {
 
 /* NOVO: Container de Scroll Horizontal */
 .produtos-scroll {
+    overflow-x: auto; /* Garante scroll HORIZONTAL (esquerda para direita)
     /* Habilita o Flexbox para alinhar os cards lado a lado */
     display: flex;
     /* Impede que os cards quebrem para a linha de baixo */
