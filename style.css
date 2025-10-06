@@ -131,7 +131,37 @@ body {
   line-height: 1.5;
 }
 
+/*cards rolagem teste*/
+.cards-info.produtos {
+    /* Desativa a quebra de linha! Essencial para o carrossel */
+    flex-wrap: nowrap;
+    
+    /* Remove o centralização para alinhar os cards à esquerda */
+    justify-content: flex-start;
 
+    /* Adiciona a rolagem horizontal */
+    overflow-x: auto;
+    
+    /* Garante que o contêiner de rolagem use toda a largura disponível */
+    width: 100%;
+    
+    /* Ajuste para telas grandes: Adiciona um pouco de "ar" nas laterais */
+    padding: 0 2rem; 
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.cards-info.produtos .card {
+    /* Impede que o card encolha e força ele a manter o tamanho base */
+    flex-shrink: 0; 
+    
+    /* Garante a largura do card (25rem é a largura mínima/base, mas você pode definir um valor fixo aqui) */
+    width: 25rem; 
+    
+    /* Sobrescreve a regra geral para manter o tamanho no carrossel */
+    max-width: 25rem;
+}
+/*cards rolagem teste*/
 
 /* Produtos - Cards específicos */
 .produtos .produto-card {
@@ -286,6 +316,7 @@ body {
         max-width: 45%;
     }
 }
+
 
 
 
