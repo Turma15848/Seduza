@@ -192,220 +192,114 @@ body {
 
 
 .card:hover {
-
   transform: translateY(-0.5rem); /* -5px */
-
 }
-
-
 
 .card h3 {
-
   color: #8e0d13;
-
   font-size: 2rem; /* 20px */
-
   margin-bottom: 1rem; /* 10px */
-
 }
-
-
 
 .card p {
-
   color: #444;
-
   font-size: 1.6rem; /* 16px */
-
   line-height: 1.5;
-
 }
-
-
-
 
 
 .footer {
-
   background-color: #8e0d13;
-
   color: #fff8f0;
-
   padding: 4rem 2rem 2rem; /* 40px 20px 20px */
-
   font-size: 1.4rem; /* 14px */
-
 }
-
-
 
 /* Produtos - Cards específicos */
 
 .produtos .produto-card {
-
   max-width: 25rem; /* 250px */
-
 }
-
-
 
 .produto-img {
-
   width: 100%;
-
   height: 20rem; /* Define altura fixa — ajuste conforme necessário */
-
   object-fit: cover; /* Corta o excesso sem distorcer */
-
   object-position: center; /* Centraliza a imagem dentro do espaço */
-
   border-radius: 0.5rem;
-
   margin-bottom: 1.5rem;
-
   box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
-
   transition: transform 0.3s ease;
-
 }
-
-
-
-
 
 .produto-img:hover {
-
   transform: scale(1.05);
-
 }
-
-
 
 /* Forms contato - Fale Conosco */
 
 .form-contato {
-
   max-width: 50rem;
-
   margin: 3rem auto;
-
   text-align: left;
-
 }
-
-
 
 .form-contato input,
 
 .form-contato textarea {
-
   width: 100%;
-
   padding: 1rem;
-
   margin-top: 0.5rem;
-
   margin-bottom: 1.5rem;
-
   border: 0.1rem solid #ccc;
-
   border-radius: 0.5rem;
-
   font-size: 1.6rem;
-
 }
-
-
 
 .form-contato button {
-
   background-color: #8e0d13;
-
   color: #fff8f0;
-
   padding: 1rem 2rem;
-
   border: none;
-
   border-radius: 0.5rem;
-
   cursor: pointer;
-
   font-size: 1.6rem;
-
 }
-
-
 
 .form-contato button:hover {
-
   background-color: #a5141b;
-
 }
-
-
-
 
 
 /* Footer */
 
-
-
 .footer-content {
-
   display: flex;
-
   flex-wrap: wrap;
-
   justify-content: space-between;
-
   max-width: 100rem; /* 1000px */
-
   margin: 0 auto;
-
   gap: 4rem; /* 40px */
-
 }
-
-
 
 .footer-info {
-
   flex: 1 1 30rem; /* 300px */
-
 }
-
-
 
 .footer-info h3 {
-
   font-size: 1.8rem; /* 18px */
-
   margin-bottom: 1rem; /* 10px */
-
   color: #e5c18b;
-
 }
-
-
 
 .footer-bottom {
-
   text-align: center;
-
   margin-top: 3rem; /* 30px */
-
   border-top: 0.1rem solid #ffffff33; /* 1px */
-
   padding-top: 1.5rem; /* 15px */
-
   font-size: 1.3rem; /* 13px */
-
   color: #fff0e0;
-
 }
-
-
 
 /* Media Queries for Responsiveness - REM units */
 
@@ -416,83 +310,44 @@ body {
 @media (max-width: 76.8rem) { /* 768px */
 
     .navbar {
-
         flex-direction: row;
-
         padding: 1rem 2rem; /* 10px 20px */
-
     }
-
-
 
     .navbar ul {
-
         flex-direction: row;
-
         gap: 1rem; /* 10px */
-
         margin-top: 1rem; /* 10px */
-
     }
-
-
 
     .navbar .logo {
-
         margin-bottom: 1rem; /* 10px */
-
     }
-
-
 
     .conteudo h1 {
-
         font-size: 2.8rem; /* 28px */
-
     }
-
-
 
     .conteudo p {
-
         font-size: 1.6rem; /* 16px */
-
     }
-
-
 
     .cards-info {
-
         flex-direction: column;
-
         align-items: center;
-
     }
-
-
 
     .card {
-
         max-width: 90%;
-
         margin-bottom: 2rem; /* 20px */
-
     }
-
-
 
     .footer-content {
-
         flex-direction: column;
-
         gap: 2rem; /* 20px */
-
         text-align: center;
-
     }
-
 }
-
 
 
 /* Medium devices (e.g., tablets) */
@@ -500,33 +355,20 @@ body {
 @media (min-width: 76.9rem) and (max-width: 102.4rem) { /* 769px and 1024px */
 
     .navbar {
-
         padding: 1.5rem 3rem; /* 15px 30px */
-
     }
-
-
 
     .conteudo h1 {
-
         font-size: 3.2rem; /* 32px */
-
     }
-
-
 
     .cards-info {
-
         gap: 1.5rem; /* 15px */
-
     }
 
-
-
     .card {
-
         max-width: 45%;
-
     }
 
 }
+
