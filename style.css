@@ -131,18 +131,96 @@ body {
   line-height: 1.5;
 }
 
-
-.footer {
-  background-color: #8e0d13;
-  color: #fff8f0;
-  padding: 4rem 2rem 2rem; /* 40px 20px 20px */
-  font-size: 1.4rem; /* 14px */
-}
-
 /* Produtos - Cards específicos */
 .produtos .produto-card {
   max-width: 25rem; /* 250px */
 }
+
+/*Card Scrpller teste*/
+
+/* Estilo para as linhas de produto com rolagem horizontal (Scroller) */
+.produtos-scroll {
+    /* Faz os cards ficarem na horizontal */
+    display: flex;
+    
+    /* Previne que os cards quebrem para a linha de baixo (essencial para a rolagem) */
+    flex-wrap: nowrap;
+    
+    /* Permite a rolagem horizontal */
+    overflow-x: auto;
+    
+    /* Oculta a barra de rolagem padrão para uma estética mais limpa */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+
+    /* Garante que os cards fiquem alinhados ao centro dentro da área visível */
+    justify-content: flex-start;
+    
+    /* Espaçamento interno para que o scrollbar não fique grudado nas bordas */
+    padding: 1rem 2rem; /* Adiciona um padding para a rolagem ser visível */
+    
+    /* Aumenta a margem superior para compensar o padding, se necessário */
+    margin-top: 2rem; 
+}
+
+/* Opcional: Para navegadores Webkit (Chrome, Safari) */
+.produtos-scroll::-webkit-scrollbar {
+    display: none; /* Esconde o scrollbar, mantendo a função de rolagem */
+}
+
+/* Sobrescreve o .cards-info para remover o flex-wrap em telas grandes */
+.cards-info.produtos {
+    /* Remove o `flex-wrap: wrap` padrão do .cards-info para evitar quebra de linha */
+    flex-wrap: nowrap;
+    
+    /* Remove o `justify-content: center` para que a rolagem comece da esquerda */
+    justify-content: flex-start; 
+
+    /* Define o overflow horizontal para a rolagem lateral */
+    overflow-x: auto;
+    
+    /* Adiciona padding horizontal para criar um espaço de "respiro" nas laterais */
+    padding: 0 2rem;
+}
+
+
+/* Ajuste para garantir que o contêiner de cards seja grande o suficiente para a rolagem */
+.cards-info.produtos .card {
+    /* Garante que os cards não encolham e mantenham seu tamanho */
+    flex-shrink: 0;
+    
+    /* Mantém as dimensões originais (25rem de largura máxima, 25rem de flex-basis) */
+    max-width: 25rem;
+    flex: 0 0 25rem; 
+}
+
+/* No Mobile, removemos a rolagem horizontal e voltamos a empilhar */
+@media (max-width: 76.8rem) {
+    .cards-info.produtos {
+        /* Retorna ao empilhamento vertical no mobile para melhor usabilidade */
+        flex-direction: column;
+        flex-wrap: wrap; 
+        align-items: center;
+        overflow-x: visible; /* Remove a rolagem horizontal no mobile */
+        padding: 0;
+    }
+    
+    .cards-info.produtos .card {
+        /* Permite que o card use a largura máxima definida na media query mobile */
+        max-width: 90%; 
+        flex: 1 1 90%; 
+        margin-bottom: 2rem;
+    }
+    
+    /* Garante que a classe de rolagem não atrapalhe no mobile */
+    .produtos-scroll {
+        display: block; /* Volta para o comportamento de bloco no mobile */
+        overflow-x: visible;
+        padding: 0;
+    }
+}
+
+/*Card Scroller teste*/ 
 
 .produto-img {
   width: 100%;
@@ -194,6 +272,13 @@ body {
 
 
 /* Footer */
+
+.footer {
+  background-color: #8e0d13;
+  color: #fff8f0;
+  padding: 4rem 2rem 2rem; /* 40px 20px 20px */
+  font-size: 1.4rem; /* 14px */
+}
 
 .footer-content {
   display: flex;
@@ -285,4 +370,5 @@ body {
         max-width: 45%;
     }
 }
+
 
