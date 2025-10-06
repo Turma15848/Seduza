@@ -131,7 +131,9 @@ body {
   line-height: 1.5;
 }
 
-
+.cards-info produtos .rolagem {
+    overflow-x: scroll;
+}
 
 /* Produtos - Cards específicos */
 .produtos .produto-card {
@@ -286,6 +288,7 @@ body {
         max-width: 45%;
     }
 }
+
 
 
 
