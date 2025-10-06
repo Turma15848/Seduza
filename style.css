@@ -136,7 +136,7 @@ body {
   max-width: 25rem; /* 250px */
 }
 
-/*Card Scropller teste*/
+/*Card Scropller teste
 
 /* Estilo para as linhas de produto com rolagem horizontal (Scroller) */
 .produtos-scroll {
@@ -212,7 +212,7 @@ body {
     }
 }
 
-/*Card Scroller teste*/ 
+/*Card Scroller teste*/ */
 
 .produto-img {
   width: 100%;
@@ -362,6 +362,7 @@ body {
         max-width: 45%;
     }
 }
+
 
 
 
