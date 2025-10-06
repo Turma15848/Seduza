@@ -133,6 +133,7 @@ body {
 
 .cards-info produtos .rolagem {
     overflow-x: scroll;
+    white-space: nowrap;
 }
 
 /* Produtos - Cards específicos */
@@ -288,6 +289,7 @@ body {
         max-width: 45%;
     }
 }
+
 
 
 
