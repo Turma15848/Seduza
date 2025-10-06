@@ -132,12 +132,6 @@ body {
 }
 
 
-.footer {
-  background-color: #8e0d13;
-  color: #fff8f0;
-  padding: 4rem 2rem 2rem; /* 40px 20px 20px */
-  font-size: 1.4rem; /* 14px */
-}
 
 /* Produtos - Cards específicos */
 .produtos .produto-card {
@@ -194,6 +188,13 @@ body {
 
 
 /* Footer */
+
+.footer {
+  background-color: #8e0d13;
+  color: #fff8f0;
+  padding: 4rem 2rem 2rem; /* 40px 20px 20px */
+  font-size: 1.4rem; /* 14px */
+}
 
 .footer-content {
   display: flex;
@@ -285,4 +286,5 @@ body {
         max-width: 45%;
     }
 }
+
 
