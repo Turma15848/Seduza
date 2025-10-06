@@ -132,7 +132,7 @@ body {
 }
 
 .card produto-card {
-    overflow-x: auto;
+    overflow-x: scroll;
 }
 
 /* Produtos - Cards específicos */
@@ -288,6 +288,7 @@ body {
         max-width: 45%;
     }
 }
+
 
 
 
