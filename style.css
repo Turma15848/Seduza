@@ -145,16 +145,8 @@ body {
     /* Propriedade para ativar a rolagem horizontal */
     overflow-x: auto; 
     
-    /* Opcional: Para navegadores Webkit (Chrome, Safari) */
-    padding: 0 2rem; /* Adiciona padding para que os cards não encostem nas bordas */
-    margin: 0 -2rem; /* Ajusta a margem para compensar o padding e usar a largura total */
 }
 /*Card Scroller teste*/
-
-/* Esconde a barra de rolagem em navegadores Webkit (Chrome, Safari) */
-.produtos-scroll::-webkit-scrollbar {
-    display: none;
-}
 
 .produto-img {
   width: 100%;
@@ -304,6 +296,7 @@ body {
         max-width: 45%;
     }
 }
+
 
 
 
