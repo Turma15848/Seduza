@@ -136,18 +136,6 @@ body {
   max-width: 25rem; /* 250px */
 }
 
-/*Card Scroller teste*/
-
-/*.produtos-scroll {
-    display: flex; /* Essencial: Garante que os cards fiquem em linha */
-    flex-wrap: nowrap; /* Essencial: Impede a quebra de linha */
-    
-    /* Propriedade para ativar a rolagem horizontal */
-    overflow-x: auto; 
-    
-}*/
-/*Card Scroller teste*/
-
 .produto-img {
   width: 100%;
   height: 20rem; /* Define altura fixa — ajuste conforme necessário */
@@ -296,6 +284,7 @@ body {
         max-width: 45%;
     }
 }
+
 
 
 
