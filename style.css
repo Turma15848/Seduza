@@ -105,25 +105,30 @@ body {
 }
 
 .cards-info.horizontal-scroll {
-    /* 1. Desabilita a quebra de linha para forçar tudo em uma linha */
     flex-wrap: nowrap;
-    
-    /* 2. Habilita o scroll horizontal e esconde o vertical */
-    overflow-x: auto;
-    overflow-y: hidden; 
-    
-    /* Opcional: Para esconder a barra de scroll em alguns navegadores (Webkit) */
+    overflow-x: auto; /* Mantenha 'auto' ou 'hidden' */
+    overflow-y: hidden;
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
 }
-
-/* Ajusta os cards para que não diminuam de tamanho (se já não estiverem assim) */
-/* No seu código, o flex: 1 1 25rem já impede que encolham muito, mas esta é a garantia */
+.cards-info.horizontal-scroll::-webkit-scrollbar {
+    display: none;
+}
 .cards-info.horizontal-scroll .card {
-    flex-shrink: 0; /* Impede que os cards encolham */
-    width: 25rem; /* Garante que todos tenham a largura de 250px */
+    flex-shrink: 0;
+    width: 25rem;
 }
 
+/* NOVO: Para dar a pista visual de que é arrastável */
+.cards-info.horizontal-scroll {
+    cursor: grab; /* Mão aberta */
+}
+
+/* NOVO: Estilo enquanto o usuário está arrastando */
+.cards-info.horizontal-scroll.dragging {
+    cursor: grabbing; /* Mão fechada */
+    user-select: none; /* Impede a seleção de texto/imagens durante o arrasto */
+}
 
 .card {
   background-color: #ffffff;
@@ -309,6 +314,7 @@ body {
         max-width: 45%;
     }
 }
+
 
 
 
