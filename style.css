@@ -104,6 +104,27 @@ body {
     margin-top: 4rem; /* 40px */ 
 }
 
+.cards-info.horizontal-scroll {
+    /* 1. Desabilita a quebra de linha para forçar tudo em uma linha */
+    flex-wrap: nowrap;
+    
+    /* 2. Habilita o scroll horizontal e esconde o vertical */
+    overflow-x: auto;
+    overflow-y: hidden; 
+    
+    /* Opcional: Para esconder a barra de scroll em alguns navegadores (Webkit) */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+/* Ajusta os cards para que não diminuam de tamanho (se já não estiverem assim) */
+/* No seu código, o flex: 1 1 25rem já impede que encolham muito, mas esta é a garantia */
+.cards-info.horizontal-scroll .card {
+    flex-shrink: 0; /* Impede que os cards encolham */
+    width: 25rem; /* Garante que todos tenham a largura de 250px */
+}
+
+
 .card {
   background-color: #ffffff;
   border: 0.1rem solid #e5e5e5; /* 1px */
@@ -288,6 +309,7 @@ body {
         max-width: 45%;
     }
 }
+
 
 
 
