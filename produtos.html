@@ -228,8 +228,42 @@
             <p>&copy; 2025 Seduza Cosméticos. Todos os direitos reservados.</p>
         </div>
     </footer>
+
+    <script> 
+        document.addEventListener('DOMContentLoaded', function() {
+    // 1. Define o limite de cards
+    // Acima deste número, o scroll horizontal será ativado.
+    // O valor '4' funciona bem no seu layout para desktops, 
+    // mas pode ser ajustado dependendo da largura do contêiner e dos cards.
+    const LIMITE_CARDS = 4; 
+    
+    // 2. Seleciona todas as seções que contêm os cards
+    const secoesCards = document.querySelectorAll('section.cards-info.produtos');
+
+    secoesCards.forEach(secao => {
+        // 3. Conta o número de elementos filhos com a classe 'card'
+        // Este é o número de produtos em cada linha de cards.
+        const numCards = secao.querySelectorAll('.card').length;
+        
+        // 4. Verifica se o número de cards é maior que o limite
+        if (numCards > LIMITE_CARDS) {
+            // 5. Aplica a classe CSS que habilita o scroll horizontal 
+            // (que definimos no passo 1)
+            secao.classList.add('horizontal-scroll');
+            
+            // Opcional: Log para ver quais seções foram modificadas
+            console.log(`Seção com ${numCards} cards recebeu scroll horizontal.`);
+        }
+    });
+
+    // Nota: O código Flexbox no seu CSS já garante que:
+    // flex-wrap: wrap (padrão) -> Se tiver 4 ou menos cards, eles se ajustam bem.
+    // flex-wrap: nowrap (com a nova classe) -> Se tiver mais de 4, forçamos a não quebra e o overflow-x.
+});
+    </script>
 </body>
 </html>
+
 
 
 
