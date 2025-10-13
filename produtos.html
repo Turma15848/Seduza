@@ -231,38 +231,73 @@
 
     <script> 
         document.addEventListener('DOMContentLoaded', function() {
-    // 1. Define o limite de cards
-    // Acima deste número, o scroll horizontal será ativado.
-    // O valor '4' funciona bem no seu layout para desktops, 
-    // mas pode ser ajustado dependendo da largura do contêiner e dos cards.
-    const LIMITE_CARDS = 4; 
     
-    // 2. Seleciona todas as seções que contêm os cards
-    const secoesCards = document.querySelectorAll('section.cards-info.produtos');
+    // --- PARTE 1: LÓGICA DO SCROLL ARRASTÁVEL ---
+    
+    // Seleciona todas as seções de cards que podem ser arrastadas
+    const sliders = document.querySelectorAll('section.cards-info.produtos');
+    
+    sliders.forEach(slider => {
+        let isDown = false; // Se o botão do mouse está pressionado
+        let startX;         // Posição inicial do mouse (eixo X)
+        let scrollLeft;     // Posição inicial do scroll do container
 
-    secoesCards.forEach(secao => {
-        // 3. Conta o número de elementos filhos com a classe 'card'
-        // Este é o número de produtos em cada linha de cards.
-        const numCards = secao.querySelectorAll('.card').length;
-        
-        // 4. Verifica se o número de cards é maior que o limite
-        if (numCards > LIMITE_CARDS) {
-            // 5. Aplica a classe CSS que habilita o scroll horizontal 
-            // (que definimos no passo 1)
-            secao.classList.add('horizontal-scroll');
+        // Função de Início de Arraste (mousedown)
+        slider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            slider.classList.add('dragging'); // Aplica o estilo de cursor
             
-            // Opcional: Log para ver quais seções foram modificadas
-            console.log(`Seção com ${numCards} cards recebeu scroll horizontal.`);
-        }
+            // Pega a posição do mouse no momento do clique
+            startX = e.pageX - slider.offsetLeft;
+            
+            // Pega a posição atual de scroll do container
+            scrollLeft = slider.scrollLeft; 
+        });
+
+        // Função de Fim de Arraste (mouseleave, mouseup)
+        // O arrasto para quando o mouse sai do elemento ou o botão é solto
+        slider.addEventListener('mouseleave', () => {
+            isDown = false;
+            slider.classList.remove('dragging');
+        });
+        
+        slider.addEventListener('mouseup', () => {
+            isDown = false;
+            slider.classList.remove('dragging');
+        });
+
+        // Função Principal de Movimento (mousemove)
+        slider.addEventListener('mousemove', (e) => {
+            if (!isDown) return; // Se o mouse não estiver pressionado, sai da função
+            e.preventDefault();  // Impede a seleção de texto e outros comportamentos padrão
+            
+            // Calcula o quanto o mouse se moveu (distância)
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 2; // Multiplicamos por 2 para um movimento mais rápido/sensível
+            
+            // Move o scroll do container na direção oposta ao movimento do mouse
+            slider.scrollLeft = scrollLeft - walk; 
+        });
     });
 
-    // Nota: O código Flexbox no seu CSS já garante que:
-    // flex-wrap: wrap (padrão) -> Se tiver 4 ou menos cards, eles se ajustam bem.
-    // flex-wrap: nowrap (com a nova classe) -> Se tiver mais de 4, forçamos a não quebra e o overflow-x.
+
+    // --- PARTE 2: LÓGICA DE ATIVAÇÃO DO SCROLL (COMO NO PASSO ANTERIOR) ---
+
+    // Apenas ativa a funcionalidade de arrastar para as seções com muitos cards
+    const LIMITE_CARDS = 4;
+    
+    sliders.forEach(secao => {
+        const numCards = secao.querySelectorAll('.card').length;
+        
+        if (numCards > LIMITE_CARDS) {
+            secao.classList.add('horizontal-scroll');
+        }
+    });
 });
     </script>
 </body>
 </html>
+
 
 
 
