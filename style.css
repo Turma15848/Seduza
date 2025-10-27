@@ -78,7 +78,7 @@ body {
 /* Conteúdo */
 .conteudo {
     text-align: center;
-    padding: 5rem 2rem; /* 50px 20px */
+    padding: 5rem 20rem; /* 50px 20px */
     margin-bottom: 6rem; /* 60px */
 }
 
@@ -289,6 +289,7 @@ body {
         max-width: 45%;
     }
 }
+
 
 
 
