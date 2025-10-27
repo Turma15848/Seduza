@@ -105,6 +105,32 @@ body {
 }
 
 
+.cards-info.horizontal-scroll {
+    flex-wrap: nowrap;
+    overflow-x: auto; /* Mantenha 'auto' ou 'hidden' */
+    overflow-y: hidden;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+.cards-info.horizontal-scroll::-webkit-scrollbar {
+    display: none;
+}
+.cards-info.horizontal-scroll .card {
+    flex-shrink: 0;
+    width: 25rem;
+}
+
+/* NOVO: Para dar a pista visual de que é arrastável */
+.cards-info.horizontal-scroll {
+    cursor: grab; /* Mão aberta */
+}
+
+/* NOVO: Estilo enquanto o usuário está arrastando */
+.cards-info.horizontal-scroll.dragging {
+    cursor: grabbing; /* Mão fechada */
+    user-select: none; /* Impede a seleção de texto/imagens durante o arrasto */
+}
+
 .card {
   background-color: #ffffff;
   border: 0.1rem solid #e5e5e5; /* 1px */
@@ -299,6 +325,7 @@ body {
         max-width: 45%;
     }
 }
+
 
 
 
