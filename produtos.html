@@ -263,74 +263,10 @@
         </div>
     </footer>
 
-    <script> 
-        document.addEventListener('DOMContentLoaded', function() {
-    
-    // --- PARTE 1: LÓGICA DO SCROLL ARRASTÁVEL ---
-    
-    // Seleciona todas as seções de cards que podem ser arrastadas
-    const sliders = document.querySelectorAll('section.cards-info.produtos');
-    
-    sliders.forEach(slider => {
-        let isDown = false; // Se o botão do mouse está pressionado
-        let startX;         // Posição inicial do mouse (eixo X)
-        let scrollLeft;     // Posição inicial do scroll do container
-
-        // Função de Início de Arraste (mousedown)
-        slider.addEventListener('mousedown', (e) => {
-            isDown = true;
-            slider.classList.add('dragging'); // Aplica o estilo de cursor
-            
-            // Pega a posição do mouse no momento do clique
-            startX = e.pageX - slider.offsetLeft;
-            
-            // Pega a posição atual de scroll do container
-            scrollLeft = slider.scrollLeft; 
-        });
-
-        // Função de Fim de Arraste (mouseleave, mouseup)
-        // O arrasto para quando o mouse sai do elemento ou o botão é solto
-        slider.addEventListener('mouseleave', () => {
-            isDown = false;
-            slider.classList.remove('dragging');
-        });
-        
-        slider.addEventListener('mouseup', () => {
-            isDown = false;
-            slider.classList.remove('dragging');
-        });
-
-        // Função Principal de Movimento (mousemove)
-        slider.addEventListener('mousemove', (e) => {
-            if (!isDown) return; // Se o mouse não estiver pressionado, sai da função
-            e.preventDefault();  // Impede a seleção de texto e outros comportamentos padrão
-            
-            // Calcula o quanto o mouse se moveu (distância)
-            const x = e.pageX - slider.offsetLeft;
-            const walk = (x - startX) * 2; // Multiplicamos por 2 para um movimento mais rápido/sensível
-            
-            // Move o scroll do container na direção oposta ao movimento do mouse
-            slider.scrollLeft = scrollLeft - walk; 
-        });
-    });
-
-
-    // --- PARTE 2: LÓGICA DE ATIVAÇÃO DO SCROLL (COMO NO PASSO ANTERIOR) ---
-
-    // Apenas ativa a funcionalidade de arrastar para as seções com muitos cards
-    const LIMITE_CARDS = 4;
-    
-    sliders.forEach(secao => {
-        const numCards = secao.querySelectorAll('.card').length;
-        
-        if (numCards > LIMITE_CARDS) {
-            secao.classList.add('horizontal-scroll');
-        }
-    });
-});
-    </script>
+   
 </body>
 </html>
+
 
 
 
