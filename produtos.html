@@ -276,74 +276,168 @@
 
 
     <script> 
-        document.addEventListener('DOMContentLoaded', function() {
-    
-    // --- PARTE 1: LÓGICA DO SCROLL ARRASTÁVEL ---
-    
-    // Seleciona todas as seções de cards que podem ser arrastadas
-   /* const sliders = document.querySelectorAll('section.cards-info.produtos');
-    
-    sliders.forEach(slider => {
-        let isDown = false; // Se o botão do mouse está pressionado
-        let startX;         // Posição inicial do mouse (eixo X)
-        let scrollLeft;     // Posição inicial do scroll do container
+       document.addEventListener('DOMContentLoaded', () => {
+    // Seleciona todos os contêineres que devem ser sliders
+    const sliderContainers = document.querySelectorAll('.slider-container');
 
-        // Função de Início de Arraste (mousedown)
-        slider.addEventListener('mousedown', (e) => {
-            isDown = true;
-            slider.classList.add('dragging'); // Aplica o estilo de cursor
-            
-            // Pega a posição do mouse no momento do clique
-            startX = e.pageX - slider.offsetLeft;
-            
-            // Pega a posição atual de scroll do container
-            scrollLeft = slider.scrollLeft; 
-        });
+    // Inicializa a lógica do slider para CADA contêiner
+    sliderContainers.forEach(container => {
+        const slider = container.querySelector('.cards-info.horizontal-scroll');
+        const prevArrow = container.querySelector('.prev-arrow');
+        const nextArrow = container.querySelector('.next-arrow');
+        const indicatorsContainer = container.querySelector('.slider-indicators');
 
-        // Função de Fim de Arraste (mouseleave, mouseup)
-        // O arrasto para quando o mouse sai do elemento ou o botão é solto
-        slider.addEventListener('mouseleave', () => {
-            isDown = false;
-            slider.classList.remove('dragging');
-        });
+        if (!slider) return; // Sai se não encontrar o slider (lista de cards)
+
+        let isDragging = false;
+        let startPos = 0;
+        let scrollLeft = 0;
+        let cardWidth = 0;
+        let totalCards = 0;
+        let currentPage = 0;
+        let totalPages = 0;
+        let visibleCards = 0;
+
+        // --- Funções Auxiliares ---
+
+        const getMetrics = () => {
+            // Recalcula as métricas para responsividade
+            const cards = slider.querySelectorAll('.card');
+            if (cards.length === 0) return;
+            
+            cardWidth = cards[0].offsetWidth + 
+                        parseFloat(window.getComputedStyle(slider).gap || 0) + 
+                        parseFloat(window.getComputedStyle(cards[0]).marginRight || 0);
+
+            totalCards = cards.length;
+            
+            // Calcula quantos cards cabem na tela
+            visibleCards = Math.round(slider.offsetWidth / cardWidth);
+            
+            // Define o número total de 'páginas' que podemos deslizar
+            totalPages = Math.ceil(totalCards / visibleCards);
+
+            // Garante que a página atual não exceda o limite
+            if (currentPage >= totalPages) {
+                currentPage = Math.max(0, totalPages - 1);
+            }
+        };
+
+        const updateArrows = () => {
+            // Desativa/ativa as setas
+            prevArrow.classList.toggle('disabled', currentPage === 0);
+            nextArrow.classList.toggle('disabled', currentPage >= totalPages - 1);
+        };
+
+        const updateIndicators = () => {
+            // Remove e recria os indicadores (bolinhas)
+            indicatorsContainer.innerHTML = '';
+            for (let i = 0; i < totalPages; i++) {
+                const dot = document.createElement('div');
+                dot.classList.add('indicator-dot');
+                if (i === currentPage) {
+                    dot.classList.add('active');
+                }
+                dot.addEventListener('click', () => {
+                    currentPage = i;
+                    scrollToPage();
+                });
+                indicatorsContainer.appendChild(dot);
+            }
+        };
+
+        const scrollToPage = () => {
+            getMetrics(); // Garante métricas atualizadas
+            
+            // Calcula a posição de rolagem para o início da página
+            const scrollAmount = currentPage * cardWidth * visibleCards;
+            
+            // Rola a lista de cards
+            slider.scrollLeft = scrollAmount;
+            
+            updateArrows();
+            updateIndicators();
+        };
         
-        slider.addEventListener('mouseup', () => {
-            isDown = false;
+        // --- Eventos de Navegação por Seta ---
+
+        prevArrow.addEventListener('click', () => {
+            if (currentPage > 0) {
+                currentPage--;
+                scrollToPage();
+            }
+        });
+
+        nextArrow.addEventListener('click', () => {
+            if (currentPage < totalPages - 1) {
+                currentPage++;
+                scrollToPage();
+            }
+        });
+
+        // --- Eventos de Arrastar com Mouse/Touch ---
+
+        // Início do arrasto
+        const startDrag = (e) => {
+            if (e.target.closest('a') || e.target.closest('button')) return; // Evita links
+            isDragging = true;
+            slider.classList.add('dragging');
+            startPos = (e.touches ? e.touches[0].pageX : e.pageX) - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+            e.preventDefault(); // Impede o comportamento padrão de arrastar imagens/texto
+        };
+
+        // Durante o arrasto
+        const onDrag = (e) => {
+            if (!isDragging) return;
+            const x = (e.touches ? e.touches[0].pageX : e.pageX) - slider.offsetLeft;
+            const walk = (x - startPos); // Distância arrastada
+            slider.scrollLeft = scrollLeft - walk;
+        };
+
+        // Fim do arrasto
+        const stopDrag = () => {
+            if (!isDragging) return;
+            isDragging = false;
             slider.classList.remove('dragging');
-        });
-
-        // Função Principal de Movimento (mousemove)
-        slider.addEventListener('mousemove', (e) => {
-            if (!isDown) return; // Se o mouse não estiver pressionado, sai da função
-            e.preventDefault();  // Impede a seleção de texto e outros comportamentos padrão
             
-            // Calcula o quanto o mouse se moveu (distância)
-            const x = e.pageX - slider.offsetLeft;
-            const walk = (x - startX) * 2; // Multiplicamos por 2 para um movimento mais rápido/sensível
-            
-            // Move o scroll do container na direção oposta ao movimento do mouse
-            slider.scrollLeft = scrollLeft - walk; 
-        });
-    });
+            // NOVO: Ajusta para a página mais próxima após o arrasto
+            const nearestPage = Math.round(slider.scrollLeft / (cardWidth * visibleCards));
+            currentPage = nearestPage;
+            scrollToPage();
+        };
 
+        slider.addEventListener('mousedown', startDrag);
+        slider.addEventListener('touchstart', startDrag);
 
-    // --- PARTE 2: LÓGICA DE ATIVAÇÃO DO SCROLL (COMO NO PASSO ANTERIOR) ---
+        window.addEventListener('mousemove', onDrag);
+        window.addEventListener('touchmove', onDrag);
 
-    // Apenas ativa a funcionalidade de arrastar para as seções com muitos cards
-    const LIMITE_CARDS = 4;
-    
-    sliders.forEach(secao => {
-        const numCards = secao.querySelectorAll('.card').length;
+        window.addEventListener('mouseup', stopDrag);
+        window.addEventListener('touchend', stopDrag);
+        window.addEventListener('touchcancel', stopDrag);
         
-        if (numCards > LIMITE_CARDS) {
-            secao.classList.add('horizontal-scroll');
-        }
+        // --- Evento de Redimensionamento (Responsividade) ---
+
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                getMetrics();
+                scrollToPage(); // Reposiciona após redimensionamento
+            }, 250);
+        });
+
+        // --- Inicialização ---
+        getMetrics();
+        scrollToPage();
     });
-}); */
+});
     </script>
    
 </body>
 </html>
+
 
 
 
